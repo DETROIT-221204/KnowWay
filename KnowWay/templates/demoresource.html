@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Hub</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .form-select, .btn-primary {
+            background-color: #333;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #555;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #89cff0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>YouTube Video Links</h2>
+        <ul>
+            {% for chap in res %}
+                <li><a href="{{ chap.video_url }}" target="_blank">{{ chap.chapter_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Notes Links</h2>
+        <ul>
+            {% for chap in res %}
+                <li><a href="{{ chap.notes_link }}" target="_blank">Notes</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Previous Year Question Links</h2>
+        <ul>
+            {% for chap in res %}
+                <li><a href="{{ chap.previous_year_q }}" target="_blank">PYQ Papers</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Book Recommendations</h2>
+        <ul>
+            {% for chap in res %}
+                <li><strong>{{ chap.book_recommendation }}</strong> -
+                    <a href="{{ chap.book_link }}" target="_blank">Book Link</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Recommended Courses</h2>
+        <ul>
+            {% for chap in res %}
+                <li><a href="{{ chap.recommended_courses_link }}" target="_blank">{{ chap.recommended_courses }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
